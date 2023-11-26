@@ -3,7 +3,7 @@ import sys
 
 
 def run_client(input_text):
-    url = 'http://localhost:9000/llmserver'
+    url = 'http://localhost:5000/llmserver'
     Headers = {'Accept': 'text/event-stream'}
     data = {'input_text': input_text}
 

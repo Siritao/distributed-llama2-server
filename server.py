@@ -13,7 +13,7 @@ app = Flask(__name__)
 flask_cors.CORS(app)
 
 model_path = '../Llama-2-7b-hf'
-memory_bound = {0: '16GiB', 1: '16GiB', 2: '16GiB', 3: '16GiB'}
+memory_bound = {0: '16GiB', 1: '16GiB', 2: '16GiB', 3: '16GiB', 'cpu': '16GiB'}
 
 print('init model...')
 tokenizer = LlamaTokenizer.from_pretrained(model_path)
@@ -61,4 +61,4 @@ def infer():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=9000, threaded=True)
+    app.run(host='0.0.0.0', port=5000, threaded=True)
