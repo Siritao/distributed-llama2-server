@@ -12,7 +12,7 @@ import torch
 app = Flask(__name__)
 flask_cors.CORS(app)
 
-model_path = '../Llama-2-7b-hf'
+model_path = './Llama-2-7b-hf'
 memory_bound = {0: '16GiB', 1: '16GiB', 2: '16GiB', 3: '16GiB', 'cpu': '16GiB'}
 
 print('init model...')

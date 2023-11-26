@@ -15,5 +15,5 @@ def run_client(input_text):
 
 
 if __name__ == '__main__':
-    input_text = "Cloud computing is"
+    input_text = sys.argv[1]
     run_client(input_text)
