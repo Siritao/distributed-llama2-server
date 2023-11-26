@@ -2,3 +2,4 @@ transformers
 sentencepiece
 accelerate
 flask
+flask-cors

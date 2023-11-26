@@ -19,9 +19,9 @@ torch.set_grad_enabled(False)
 model.eval()
 
 def generate(input_text, max_new_tokens=200, temperature=1.0, top_k=0, top_p=0.9):
-    input_ids = tokenizer(input_text, return_tensors="pt").to(model.device)
+    input_ids = tokenizer.encode(input_text, return_tensors="pt").to(model.device)
     outputs = model.generate(
-    **input_ids,
+    input_ids=input_ids,
     max_new_tokens=max_new_tokens,
     temperature=temperature,
     top_k=top_k,
@@ -34,4 +34,4 @@ def generate(input_text, max_new_tokens=200, temperature=1.0, top_k=0, top_p=0.9
     return output_texts
 	
 if __name__ == '__main__':
-    print(generate(['the best way to deploy a server on cloud']))
+    print(generate('the best way to deploy a server on cloud'))
