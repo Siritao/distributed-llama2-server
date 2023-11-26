@@ -3,7 +3,7 @@ from accelerate import init_empty_weights,infer_auto_device_map,load_checkpoint_
 import torch
 
 model_path = './Llama-2-7b-hf'
-memory_bound = {0: '16GiB', 1: '16GiB', 2: '16GiB', 3: '16GiB'}
+memory_bound = {0: '16GiB', 1: '16GiB', 2: '16GiB', 3: '16GiB', 'cpu': '16GiB'}
 
 tokenizer = LlamaTokenizer.from_pretrained("./Llama-2-7b-hf")
 
