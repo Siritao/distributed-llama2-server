@@ -1,16 +1,19 @@
 import requests
+import sys
 
-def query(input_text):
-    url = 'http://localhost:5000/llmserver'
-    prompt = {'input_text': input_text}
-    response = requests.post(url, json=prompt)
-    
-    if response.status_code == 200:  # success
-        result = response.json()
-        print(result['result'])
-    else:
-        print('Error code:', response.status_code)
+
+def run_client(input_text):
+    url = 'http://localhost:9000/llmserver'
+    Headers = {'Accept': 'text/event-stream'}
+    data = {'input_text': input_text}
+
+    response = requests.post(url, json=data, stream=True, headers=Headers)
+    for res in response.iter_lines():
+        print(res.decode(), end='')
+        sys.stdout.flush()
+    print()
+
 
 if __name__ == '__main__':
-    input_text = "The defination of cloud computing is"
-    query(input_text)
+    input_text = "Cloud computing is"
+    run_client(input_text)
