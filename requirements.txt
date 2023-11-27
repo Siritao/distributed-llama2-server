@@ -3,3 +3,4 @@ sentencepiece
 accelerate
 flask
 flask-cors
+gunicorn

@@ -1,5 +1,5 @@
 # distributed-llama2-server
-In this repo, we demonstrate how to serve a `Llama-2-7b-hf` on a node with 4 16G GPUs though GPU mem is partially occupied (supported by __model parallel__ and __CPU off-loading__) via __token streaming__.
+In this repo, we demonstrate how to serve a `Llama-2-7b-hf` on a node with 4x16G GPUs though GPU mem is partially occupied (supported by __model parallel__ and __CPU off-loading__) via __token streaming__.
 
 ## Install
 ### Prepare pre-trained model
@@ -15,14 +15,22 @@ docker run --gpus all --name=llmserver --ipc=host --ulimit memlock=-1 --ulimit s
 Since it is hard to directly download the huge model checkpoints at creation, we recommend to pre-prepare and place it under `pwd`.
 
 ## Test inference pipeline
+
 ```
 python test_infer.py
 ```
 
 ## Start server
+You can use `watch -n 1 nvidia-smi` to decide the memory allocation and modify the `memory_bound` arg in `server.py`.
 
 ```
 python server.py
+```
+
+Using `Gunicorn` to deploy the server:
+
+```
+gunicorn server:app -c gunicorn.conf.py
 ```
 
 ## Query
