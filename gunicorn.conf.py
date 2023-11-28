@@ -14,5 +14,5 @@ loglevel = 'info'
 
 # Note: We cannot use multiple workers together with preload_app in gunicorn to
 # boost memory and compute efficiency, for bad compatibility with CUDA.
-# set workers -> multi-process
+# set workers -> multi-process (not recommended, unless you have enough computing resources)
 # set threads -> multi-thread

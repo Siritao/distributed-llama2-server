@@ -21,7 +21,7 @@ python test_infer.py
 ```
 
 ## Start server
-You can use `watch -n 1 nvidia-smi` to decide the memory allocation and modify the `memory_bound` arg in `server.py`.
+You can use `watch -n 1 nvidia-smi` to decide the memory allocation and modify the `memory_bound` arg in `server.py`. Including more devices won't promote efficiency and may bring extra communication, so it is suggested to adjust `memory_bound` according to your environment.
 
 ```
 python server.py

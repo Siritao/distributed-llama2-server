@@ -8,3 +8,5 @@ RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 COPY test_infer.py /app/test_infer.py
 COPY server.py /app/server.py
+
+# CMD/ENTRYPOINT is not provided since model needs to be pre-prepared.
